@@ -35,10 +35,16 @@ angular.module('caseDemoWebappApp')
         authenticate: true
       });
   })
-  .run(function($rootScope) {
+  .run(function($rootScope,$state,Auth) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
       if (next.name === 'logout' && current && current.name && !current.authenticate) {
         next.referrer = current.name;
+      }
+      else{
+        if(next.name != 'login' && !Auth.isLoggedIn()){
+          event.preventDefault();
+          $state.go('login');
+        }
       }
     });
   });

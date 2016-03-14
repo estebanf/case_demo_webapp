@@ -1,0 +1,28 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Claims demo</h1>
+    <p class="lead">Showcasing everteam technology</p>
+    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+  </div>
+</header>
+
+<div class="container" ng-controller="NewClaimCtrl">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Create a new claim: <button type="button" class="btn btn-warning pull-right" ng-click="back()">Back</button></h1>
+      <form action="" method="POST" role="form">
+        <legend>Provide your claim information</legend>
+      
+        <div class="form-group">
+          <label for="claimType">Type</label>
+          <input type="text" class="form-control" id="claimType" placeholder="Type of claim" ng-model="claim.type">
+        </div>
+        <div class="form-group">
+          <label for="Information">Information</label>
+          <textarea rows="3" class="form-control" id="Information" placeholder="Information" ng-model="claim.information"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="save(claim)">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
