@@ -32,14 +32,6 @@ var all = {
     session: 'case-demo-webapp-secret'
   },
 
-  // MongoDB connection options
-  mongo: {
-    options: {
-      db: {
-        safe: true
-      }
-    }
-  }
 };
 
 // Export the config object based on the NODE_ENV

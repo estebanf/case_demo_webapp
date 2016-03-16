@@ -7,6 +7,9 @@
 import sqldb from '../sqldb';
 var Thing = sqldb.Thing;
 var User = sqldb.User;
+var Customer = sqldb.Customer;
+
+Customer.sync();
 
 Thing.sync()
   .then(() => {
