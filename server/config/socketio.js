@@ -17,9 +17,14 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
-  require('../api/customer/policy/policy.socket').register(socket);
-  require('../api/customer/customer.socket').register(socket);
-  require('../api/thing/thing.socket').register(socket);
+
+  // require('../api/document_type/document_type.socket').register(socket);
+  // require('../api/customer/policy/policy.socket').register(socket);
+  // require('../api/customer/policy/claim/claim.socket').register(socket);
+  // require('../api/customer/policy/claim/claim_document/claim_document.socket').register(socket);
+  // require('../api/customer/policy/claim/claim_task/claim_task.socket').register(socket);
+  // require('../api/customer/customer.socket').register(socket);
+  // require('../api/thing/thing.socket').register(socket);
 
 }
 
