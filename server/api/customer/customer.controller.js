@@ -12,6 +12,7 @@
 import _ from 'lodash';
 import {Customer} from '../../sqldb';
 
+
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -79,6 +80,7 @@ export function show(req, res) {
 
 // Creates a new Customer in the DB
 export function create(req, res) {
+  req.body.active = true;
   Customer.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

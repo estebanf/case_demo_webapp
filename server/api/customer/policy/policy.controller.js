@@ -81,6 +81,8 @@ export function show(req, res) {
 
 // Creates a new Policy in the DB
 export function create(req, res) {
+  req.body.CustomerId = req.params.customer_id;
+  req.body.active = true;
   Policy.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

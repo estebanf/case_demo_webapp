@@ -79,6 +79,8 @@ export function show(req, res) {
 
 // Creates a new ClaimDocument in the DB
 export function create(req, res) {
+  req.body.ClaimId = req.params.claim_id;
+  req.body.active = true;
   ClaimDocument.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

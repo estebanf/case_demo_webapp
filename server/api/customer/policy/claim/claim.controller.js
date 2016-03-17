@@ -11,6 +11,7 @@
 
 import _ from 'lodash';
 import {Claim} from '../../../../sqldb';
+var moment = require('moment');
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -79,6 +80,9 @@ export function show(req, res) {
 
 // Creates a new Claim in the DB
 export function create(req, res) {
+  req.body.PolicyId = req.params.policy_id;
+  req.body.active = true;
+  req.body.date_reported = moment();
   Claim.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
