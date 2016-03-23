@@ -16,7 +16,7 @@ var ClaimDocument = sqldb.ClaimDocument;
 var DocumentType = sqldb.DocumentType;
 var ClaimTask = sqldb.ClaimTask;
 
-var force = {force:false}
+var force = {force:true}
 
 
 DocumentType.sync(force)
@@ -69,11 +69,13 @@ Customer.sync(force)
             });
         });
       Claim.sync(force)
-        .then(() => Claim.destroy({where: {}}));
-      ClaimDocument.sync(force)
-        .then(() => ClaimDocument.destroy({where: {}}));
-      ClaimTask.sync(force)
-        .then(() => ClaimTask.destroy({where: {}}));
+        .then(() => Claim.destroy({where: {}}))
+        .then(() => {
+          ClaimDocument.sync(force)
+            .then(() => ClaimDocument.destroy({where: {}}));
+          ClaimTask.sync(force)
+            .then(() => ClaimTask.destroy({where: {}}));
+          });
     })
   });
 

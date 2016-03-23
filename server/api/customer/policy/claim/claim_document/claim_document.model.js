@@ -1,7 +1,7 @@
 'use strict';
 
 export default function(sequelize, DataTypes) {
-  return sequelize.define('ClaimDocument', {
+  return sequelize.define('claim_document', {
     _id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -11,5 +11,10 @@ export default function(sequelize, DataTypes) {
     info: DataTypes.STRING,
     url: DataTypes.STRING,
     active: DataTypes.BOOLEAN
+  },{
+    underscored: true,
+    underscoredAll: true,
+    createdAt:'created_at',
+    updatedAt:'updated_at'
   });
 }

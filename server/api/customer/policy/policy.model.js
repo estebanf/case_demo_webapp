@@ -1,7 +1,7 @@
 'use strict';
 
 export default function(sequelize, DataTypes) {
-  return sequelize.define('Policy', {
+  return sequelize.define('policy', {
     _id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -13,5 +13,10 @@ export default function(sequelize, DataTypes) {
     start_date: DataTypes.DATE,
     end_date: DataTypes.DATE,
     active: DataTypes.BOOLEAN
+  },{
+    underscored: true,
+    underscoredAll: true,
+    createdAt:'created_at',
+    updatedAt:'updated_at'
   });
 }

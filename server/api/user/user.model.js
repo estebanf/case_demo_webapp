@@ -39,7 +39,10 @@ module.exports = function(sequelize, DataTypes) {
     salt: DataTypes.STRING
 
   }, {
-
+    underscored: true,
+    underscoredAll: true,
+    createdAt:'created_at',
+    updatedAt:'updated_at',
     /**
      * Virtual Getters
      */
